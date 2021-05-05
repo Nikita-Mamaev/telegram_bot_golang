@@ -16,6 +16,7 @@ func main() {
 
 	telegramBot := telegram.NewBot(bot)
 	telegramBot.Start()
+
 	if err := telegramBot.Start(); err != nil {
 		log.Fatal(err)
 	}

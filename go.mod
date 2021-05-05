@@ -1,4 +1,4 @@
-module github.com/Nikita-Mamaev/telegram_bot_golang.git
+module github.com/Nikita-Mamaev/telegram_bot_golang
 
 go 1.16
 
