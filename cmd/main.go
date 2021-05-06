@@ -13,27 +13,16 @@ import (
 const ()
 
 func main() {
-
-	bot, err := tgbotapi.NewBotAPI(telegramToken)
+	bot, err := tgbotapi.NewBotAPI("1713704434:AAFT8OFoy4xYBYKARwuHSEP4pT9X8h7xCpk")
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	bot.Debug = true
 
-	pocketClient, err := pocket.NewClient(pocketToken)
-	if err != nil {
-		log.Fatal(err)
-	}
+	telegramBot := telegram.NewBot(bot)
+	telegramBot.Start()
 
-	db, err := initDB()
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	tokenRepository := boltdb.NewTokenRepository(db)
-
-	telegramBot := telegram.NewBot(bot, pocketClient, tokenRepository, "http://localhost")
 	if err := telegramBot.Start(); err != nil {
 		log.Fatal(err)
 	}
